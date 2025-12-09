@@ -21,6 +21,7 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
+
 namespace Facebook\HttpClients;
 
 use Facebook\Http\GraphRawResponse;
@@ -84,11 +85,11 @@ class FacebookCurlHttpClient implements FacebookHttpClientInterface
     /**
      * Opens a new curl connection.
      *
-     * @param string $url     The endpoint to send the request to.
-     * @param string $method  The request method.
-     * @param string $body    The body of the request.
-     * @param array  $headers The request headers.
-     * @param int    $timeOut The timeout in seconds for the request.
+     * @param string $url The endpoint to send the request to.
+     * @param string $method The request method.
+     * @param string $body The body of the request.
+     * @param array $headers The request headers.
+     * @param int $timeOut The timeout in seconds for the request.
      */
     public function openConnection($url, $method, $body, array $headers, $timeOut)
     {
@@ -102,7 +103,7 @@ class FacebookCurlHttpClient implements FacebookHttpClientInterface
             CURLOPT_HEADER => true, // Enable header processing
             CURLOPT_SSL_VERIFYHOST => 2,
             CURLOPT_SSL_VERIFYPEER => true,
-            CURLOPT_CAINFO => __DIR__ . '/certs/DigiCertHighAssuranceEVRootCA.pem',
+            CURLOPT_CAINFO => __DIR__ . '/certs/cacert.pem',
         ];
 
         if ($method !== "GET") {
